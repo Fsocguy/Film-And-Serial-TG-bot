@@ -6,16 +6,14 @@ import os
 from settings.config import bot_token, channel_ids, channel_links
 
 from time import sleep
-from aiogram import Bot, Dispatcher, F, Router, types
+from aiogram import Bot, Dispatcher, Router, types
 from aiogram.fsm.state import State, StatesGroup
 from aiogram.fsm.context import FSMContext
 from aiogram.filters import CommandStart
-from aiogram.enums import ParseMode
 from aiogram.types import (
     KeyboardButton,
     Message,
     ReplyKeyboardMarkup,
-    ReplyKeyboardRemove,
     InlineKeyboardMarkup, 
     InlineKeyboardButton,
     CallbackQuery
@@ -26,7 +24,7 @@ form_router = Router()
 class user_fsm(StatesGroup):
     code = State()
     action_type = State()
-
+    
 def file_init():
     files_list = ['Фильмы.txt', 'Сериалы.txt']
     for file in files_list:
